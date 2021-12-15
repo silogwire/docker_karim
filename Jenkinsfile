@@ -23,7 +23,7 @@ pipeline {
                                   archiveArtifacts 'target/*.war'
                          }
                  }
-               stage('Docker Build') {
+               stage('Docker Build')  {
                         steps {
                                 sh 'docker build -t sihamlogwire/employee_app-1:1.0 .'
                          }
