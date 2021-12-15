@@ -31,7 +31,7 @@ pipeline {
 
                 stage('Test Image') {
                         steps {
-                                 sh 'docker run -tid -p  8081:8080 sihamlogwire/employee_app-1:1.0'
+                                 sh 'docker run -tid -p  8085:8080 sihamlogwire/employee_app-1:1.0'
                          }
                 }
 
