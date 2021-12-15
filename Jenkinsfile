@@ -7,7 +7,7 @@ pipeline {
    	stages {
         	stage('Clone') {
 			steps {
-              			git 'git@github.com:silogwire/docker_karim.git'
+              			git 'https://github.com/silogwire/docker_karim.git'
        			 }
 		}	
 		stage('Build') {
