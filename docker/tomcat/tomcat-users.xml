@@ -22,7 +22,7 @@
 
     <role rolename="manager-gui"/>
     <role rolename="manager-script"/>
-    <user username="admin" password="maryam" roles="manager-gui,manager-script"/>
+    <user username="siham" password="siham" roles="manager-gui,manager-script"/>
     <!--
       The sample user and role entries below are intended for use with the
       examples web application. They are wrapped in a comment and thus are ignored
