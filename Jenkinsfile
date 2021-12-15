@@ -23,6 +23,27 @@ pipeline {
                                   archiveArtifacts 'target/*.war'
                          }
                  }
+               stage('Docker Build') {
+                        steps {
+                                sh 'docker build -t sihamlogwire/employee_app-1:1.0 .'
+                         }
+                }
 
-	}
+                stage('Test Image') {
+                        steps {
+                                 sh 'docker run -tid -p  8081:8080 sihamlogwire/employee_app-1:1.0'
+                         }
+                }
+
+
+                 stage('Docker Push') {
+                        steps {
+                                withCredentials([usernamePassword(credentialsId:'dockerHub',passwordVariable: 'dockerHubPassword',usernameVariable: 'dockerHubUser')]) {
+                                        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                                        sh 'docker push sihamlogwire/employee_app-1:1.0'
+                                 }
+                        }
+                }
+        }
 }
+
